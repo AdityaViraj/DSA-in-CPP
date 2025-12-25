@@ -1,0 +1,37 @@
+# ===== C++ Compiled Binaries =====
+*.out
+*.exe
+*.app
+a.out
+
+# ===== Object files =====
+*.o
+*.obj
+
+# ===== Precompiled Headers =====
+*.gch
+*.pch
+
+# ===== Static / Dynamic Libraries =====
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# ===== Build directories =====
+build/
+cmake-build-*/
+Debug/
+Release/
+
+# ===== CLion / IDE files =====
+.idea/
+*.iml
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+
+# ===== Temporary / Logs =====
+*.log
