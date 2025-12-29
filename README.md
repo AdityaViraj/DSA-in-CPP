@@ -1,7 +1,5 @@
 # DSA-in-CPP
 
-# DSA in C++ (Structured)
-
 A clean, topic-wise DSA repository with one-file-per-problem solutions.
 
 ## Structure
