@@ -18,7 +18,7 @@ using namespace std;
 int linearSearch(const vector<int>& a, int key) {
     for (int i = 0; i < (int)a.size(); i++) {
         if (a[i] == key) {
-            return i;   // found
+            return i;    // found
         }
     }
     return -1;          // not found
