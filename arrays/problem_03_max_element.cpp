@@ -1,43 +1,42 @@
 /*
-Problem 03: Find the Maximum Element in an Array
+### Problem 3: Maximum Element
 
-Approach:
-- Initialize max with the smallest possible integer
-- Traverse the array
-- Update max whenever a larger element is found
+**Approach:** Linear scan  
+- Start with `mx = a[0]`
+- Update `mx` whenever `a[i] > mx`
 
-Time Complexity:  O(n)
-Space Complexity: O(1)
-*/
+**Time Complexity:** O(n)  
+**Space Complexity:** O(1)
+ */
 
 #include <iostream>
 #include <vector>
 #include <climits>
+
 using namespace std;
 
-int findMax(const vector<int>& a) {
-    int mx = INT_MIN;   // smallest possible integer
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    for (int x : a) {
-        if (x > mx) {
-            mx = x;
-        }
-    }
-    return mx;
-}
-
-int main() {
     int n;
-    cout << "Enter n: ";
-    cin >> n;
+    cin>>n;
 
     vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
     }
 
-    cout << "Maximum element: " << findMax(a) << "\n";
-
+    int mx=a[0];
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>mx)
+        {
+            mx=a[i];
+        }
+    }
+    cout<<mx<<"\n";
     return 0;
 }
