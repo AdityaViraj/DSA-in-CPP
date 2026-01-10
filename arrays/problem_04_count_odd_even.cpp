@@ -1,46 +1,35 @@
-/*
-Problem 04: Count Odd and Even Numbers in an Array
+/*### Problem 4: Count Odd and Even
 
-Approach:
-- Traverse the array once
-- Use modulo operator (%) to check parity
-- Maintain two counters
+Traverse the array once and use modulo operation:
+- Even if `x % 2 == 0`
+- Odd otherwise
 
-Time Complexity:  O(n)
-Space Complexity: O(1)
+**Time Complexity:** O(n)  
+**Space Complexity:** O(1)
 */
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-pair<int, int> countOddEven(const vector<int>& a) {
-    int odd = 0, even = 0;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    for (int x : a) {
-        if (x % 2 == 0)
-            even++;
-        else
-            odd++;
-    }
-
-    return {odd, even};
-}
-
-int main() {
     int n;
-    cout << "Enter n: ";
-    cin >> n;
+    cin>>n;
+    int odd=0;
+    int even=0;
 
     vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    for(int i = 0; i < n; i++) 
+    {
+    cin >> a[i];
+    if(a[i] % 2 == 0) even++;
+    else odd++;
     }
 
-    auto result = countOddEven(a);
-    cout << "Odd count  : " << result.first << endl;
-    cout << "Even count : " << result.second << endl;
-
+    cout << even << " " << odd << "\n";
     return 0;
 }
