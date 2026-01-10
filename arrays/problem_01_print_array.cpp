@@ -1,42 +1,41 @@
+
 /*
-Problem 01: Print all elements of an array
+### Problem 1: Print Array
 
-Input:
-  n
-  a1 a2 ... an
+**Concept:** Array traversal  
+**Idea:** Visit each element once and print it in order.
 
-Output:
-  a1 a2 ... an   (space-separated)
+- Time Complexity: O(n)
+- Space Complexity: O(1) extra
+- Common Pitfall: Accessing vector indices without resizing
 
-Approach:
-  Read n and the array, then traverse once and print each element.
-
-Time Complexity:  O(n)
-Space Complexity: O(1) extra (excluding input array)
+Printing is done carefully to avoid extra spaces.
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-// Prints array elements in one line, space-separated.
-static void printArray(const vector<long long>& a) {
-    for (size_t i = 0; i < a.size(); i++) {
-        cout << a[i] << (i + 1 == a.size() ? '\n' : ' ');
-    }
-}
-
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int n;
     cin >> n;
 
-    vector<long long> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    vector<int> v(n);
+    for(int i = 0; i < n; i++)
+    {
+        cin >> v[i];
     }
 
-    printArray(a);
+    for(int i = 0; i < n; i++)
+    {
+        if(i > 0) cout << " ";
+        cout << v[i];
+    }
+    cout << "\n";
+
     return 0;
 }
