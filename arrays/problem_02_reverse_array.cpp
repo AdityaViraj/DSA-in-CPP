@@ -1,53 +1,43 @@
 /*
-Problem 02: Reverse an Array (In-Place)
+### Problem 2: Reverse Array (In-Place)
 
-Approach:
-- Use two pointers:
-  left starts at 0
-  right starts at n-1
-- Swap a[left] and a[right]
-- Move left++ and right-- until left >= right
+**Concept:** Two pointers  
+**Idea:** Swap symmetric elements from start and end.
 
-Time Complexity: O(n)
-Space Complexity: O(1)
+- Time Complexity: O(n)
+- Space Complexity: O(1)
+- In-place algorithm (no extra array used)
 */
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-void reverseArray(vector<int> &a) {
-    int left = 0;
-    int right = (int)a.size() - 1;
-
-    while (left < right) {
-        swap(a[left], a[right]);
-        left++;
-        right--;
-    }
-}
-
-void printArray(const vector<int> &a) {
-    for (int x : a) cout << x << " ";
-    cout << "\n";
-}
-
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
-    cout << "Enter n: ";
     cin >> n;
 
-    vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
-    for (int i = 0; i < n; i++) cin >> a[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
 
-    cout << "Original: ";
-    printArray(a);
+    int i = 0, j = n - 1;
+    while (i < j) {
+        swap(v[i], v[j]);
+        i++;
+        j--;
+    }
 
-    reverseArray(a);
-
-    cout << "Reversed: ";
-    printArray(a);
+    for (int i = 0; i < n; i++) {
+        if (i > 0) cout << " ";
+        cout << v[i];
+    }
+    cout << "\n";
 
     return 0;
 }
