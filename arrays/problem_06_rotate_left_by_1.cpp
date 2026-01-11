@@ -1,52 +1,42 @@
 /*
-Problem 06: Rotate Array Left by 1
+Problem 06: Rotate array left by 1
+Given an array, rotate it left by one position (first element moves to end).
 
-Approach:
-- Store the first element
-- Shift all elements one position to the left
-- Place the first element at the end
-
-Time Complexity:  O(n)
+Time Complexity: O(n)
 Space Complexity: O(1)
 */
-
 #include <iostream>
-#include <vector>
 using namespace std;
 
-void rotateLeftByOne(vector<int>& a) {
-    int n = a.size();
-    if (n <= 1) return;   // nothing to rotate
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    int first = a[0];
-
-    for (int i = 0; i < n - 1; i++) {
-        a[i] = a[i + 1];
-    }
-
-    a[n - 1] = first;
-}
-
-void printArray(const vector<int>& a) {
-    for (int x : a) cout << x << " ";
-    cout << "\n";
-}
-
-int main() {
     int n;
-    cout << "Enter n: ";
-    cin >> n;
-
+    cin>>n;
+    
     vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    for(int i=0;i<n;i++)
+    {
+      cin>>a[i];
     }
+    
+    if(n==0 || n==1) return 0;
 
-    rotateLeftByOne(a);
+    int first=a[0];
 
-    cout << "Array after left rotation by 1:\n";
-    printArray(a);
+    for(int i=0;i<n-1;i++)
+    {
+        a[i]=a[i+1];
+    }
+    a[n-1]=first;
 
+    for(int i=0;i<n;i++)
+    {
+        if(i>0) cout<<" ";
+        cout<<a[i];
+    }
+    cout<<"\n";
     return 0;
 }
