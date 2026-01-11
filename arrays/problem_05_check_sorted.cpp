@@ -1,42 +1,50 @@
 /*
-Problem 05: Check if Array is Sorted (Non-decreasing)
+Problem 05: Check if Array is Sorted
+
+Description:
+Given an array of integers, determine whether the array is sorted
+in non-decreasing (ascending) order.
 
 Approach:
-- Compare every element with the next one
-- If any a[i] > a[i+1], array is NOT sorted
+Traverse the array once and compare each element with its next.
+If any element is greater than the next one, the array is unsorted.
 
-Time Complexity:  O(n)
-Space Complexity: O(1)
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Where:
+n = number of elements in the array
 */
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-bool isSorted(const vector<int>& a) {
-    for (int i = 0; i + 1 < (int)a.size(); i++) {
-        if (a[i] > a[i + 1]) {
-            return false;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin>>n;
+    
+    vector<int> a(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+
+    for(int i=0;i<n-1;i++)
+    {
+        if(a[i]>a[i+1])
+        {
+            cout<<"Unsorted"<<endl;
+            return 0; // exit immediately
         }
     }
-    return true;
-}
-
-int main() {
-    int n;
-    cout << "Enter n: ";
-    cin >> n;
-
-    vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-
-    if (isSorted(a))
-        cout << "Array is sorted\n";
-    else
-        cout << "Array is NOT sorted\n";
-
+    cout<<"Sorted"<<endl;
     return 0;
 }
