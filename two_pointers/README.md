@@ -7,7 +7,7 @@ Two pointers reduce nested loops by moving indices intelligently.
 - Slow/Fast pointers
 - Partition pointers (low/mid/high)
 
-## Problems (suggested)
+## Problems 
 01. Two Sum (sorted)  
 02. Remove Duplicates (sorted)  
 03. Remove Duplicates II (allow at most twice)  
