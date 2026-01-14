@@ -1,10 +1,10 @@
 /*
-Problem 11: Remove Duplicates from an Unsorted Array (Keep Order)
+Problem 11: Remove duplicates (unsorted, keep order)
+Given an array, remove duplicates while preserving the order of first appearance.
 
-Approach:
-- Use a hash set (unordered_set) to track seen elements
-- Traverse the array from left to right
-- Add element to result only if it has not appeared before
+Example:
+Input:  2 4 2 6 4 7 2
+Output: 2 4 6 7
 
 Time Complexity:  O(n) average
 Space Complexity: O(n)
@@ -15,37 +15,31 @@ Space Complexity: O(n)
 #include <unordered_set>
 using namespace std;
 
-vector<int> removeDuplicates(const vector<int>& a) {
-    unordered_set<int> seen;
-    vector<int> result;
-
-    for (int x : a) {
-        if (seen.find(x) == seen.end()) {
-            result.push_back(x);
-            seen.insert(x);
-        }
-    }
-    return result;
-}
-
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
-    cout << "Enter n: ";
     cin >> n;
 
-    vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+
+    unordered_set<int> seen;
+    vector<int> ans;
+    ans.reserve(n);
+
+    for (int x : v) {
+        if (!seen.count(x)) {      // first time seeing x
+            seen.insert(x);
+            ans.push_back(x);
+        }
     }
 
-    vector<int> uniqueArray = removeDuplicates(a);
-
-    cout << "Array after removing duplicates:\n";
-    for (int x : uniqueArray) {
-        cout << x << " ";
+    for (int i = 0; i < (int)ans.size(); i++) {
+        if (i) cout << " ";
+        cout << ans[i];
     }
     cout << "\n";
-
     return 0;
 }
