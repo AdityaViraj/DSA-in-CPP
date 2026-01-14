@@ -1,48 +1,37 @@
 /*
-Problem 08: Frequency of Digits (0–9)
+Problem 08: Frequency of digits (0 to 9)
+Count how many times digits 0–9 appear in the array.
 
-Approach:
-- Create an array freq of size 10 initialized to 0
-- Traverse the given array
-- If element is between 0 and 9, increment freq[element]
-
-Time Complexity:  O(n)
-Space Complexity: O(1)   (constant size array of length 10)
+Time Complexity: O(n)
+Space Complexity: O(1)
 */
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-vector<int> frequency0to9(const vector<int>& a) {
-    vector<int> freq(10, 0);   // indices 0 to 9
-
-    for (int x : a) {
-        if (x >= 0 && x <= 9) {
-            freq[x]++;
-        }
-    }
-    return freq;
-}
-
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
-    cout << "Enter n: ";
     cin >> n;
 
-    vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        cin >> v[i];
     }
 
-    vector<int> freq = frequency0to9(a);
+    int freq[10] = {0};
 
-    cout << "Digit frequencies (0–9):\n";
-    for (int d = 0; d <= 9; d++) {
-        if (freq[d] > 0) {
-            cout << d << " -> " << freq[d] << "\n";
+    for (int i = 0; i < n; i++) {
+        if (v[i] >= 0 && v[i] <= 9) {
+            freq[v[i]]++;
         }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        cout << i << " -> " << freq[i] << "\n";
     }
 
     return 0;
