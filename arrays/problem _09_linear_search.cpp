@@ -1,13 +1,8 @@
 /*
-Problem 09: Linear Search in an Array
+Problem 09: Linear Search
+Find the index of a given key in an array.
 
-Approach:
-- Traverse the array from left to right
-- Compare each element with the key
-- Return index as soon as match is found
-- If traversal ends, return -1
-
-Time Complexity:  O(n)
+Time Complexity: O(n)
 Space Complexity: O(1)
 */
 
@@ -15,36 +10,33 @@ Space Complexity: O(1)
 #include <vector>
 using namespace std;
 
-int linearSearch(const vector<int>& a, int key) {
-    for (int i = 0; i < (int)a.size(); i++) {
-        if (a[i] == key) {
-            return i;    // found
-        }
+int linearSearch(const vector<int>& v, int key)
+{
+    for(int i = 0; i < v.size(); i++)
+    {
+        if(v[i] == key)
+            return i;
     }
-    return -1;          // not found
+    return -1;
 }
 
-int main() {
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
-    cout << "Enter n: ";
     cin >> n;
 
-    vector<int> a(n);
-    cout << "Enter " << n << " elements:\n";
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
+    vector<int> v(n);
+    for(int i = 0; i < n; i++)
+        cin >> v[i];
 
     int key;
-    cout << "Enter element to search: ";
     cin >> key;
 
-    int index = linearSearch(a, key);
-
-    if (index == -1)
-        cout << "Element not found\n";
-    else
-        cout << "Element found at index " << index << "\n";
+    int index = linearSearch(v, key);
+    cout << index << "\n";
 
     return 0;
 }
